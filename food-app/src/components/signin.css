@@ -1,0 +1,80 @@
+/* App.css */
+.sign-in {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .sign-in h1 {
+    font-size: 2.5rem; /* Adjust size as needed */
+    margin-bottom: 20px; /* Space between heading and button */
+    
+  }
+  
+ /* restaurant.css */
+ .restaurant-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 16px;
+}
+
+.restaurant-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.restaurant-card:hover {
+  transform: scale(1.02);
+}
+
+.restaurant-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.restaurant-details {
+  padding: 16px;
+}
+
+.restaurant-name {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.restaurant-location, .restaurant-rating {
+  margin: 8px 0;
+}
+
+  .sign-out
+  {
+    margin:50px 0;
+    font-size: 1.5rem;
+  }
+  .toggle{
+    margin:0px 0;
+    font-size: 1.5rem;
+  }
+  
+  
+    
+  .menu-item-image {
+    width: 190px;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .restaurant-imaging {
+    max-width: 30%;
+      height: 30%;
+  
+      margin-bottom: 0px; /* Space below the image */
+    }
+    

@@ -1,0 +1,683 @@
+[
+    {
+      "id": 1,
+      "name": "Burger Heaven",
+      "location": "Hitech City",
+      "latitude": 17.460000,
+      "longitude": 78.380000,
+      "rating": 4.5,
+      "image": "https://b.zmtcdn.com/data/pictures/chains/8/18138658/32b17daab99d36aeb14554d9ecbbd253.jpg?fit=around|960:500&crop=960:500;*,*",
+      "menu": [
+      {
+        "id": 1,
+        "restid":1,
+        "name": "Cheese Burger",
+        "type": "veg",
+        "description": "A delicious cheese burger with lettuce and tomato.",
+        "price": 5.99,
+        "image": "https://www.sargento.com/assets/Uploads/Recipe/Image/burger_0.jpg"
+      },
+      {
+        "id": 2,
+        "restid":1,
+        "name": "Bacon Burger",
+        "type": "non-veg",
+        "description": "A burger with crispy bacon and cheddar cheese.",
+        "price": 6.49,
+        "image": "https://www.seriouseats.com/thmb/hGFt-CCaish2rqIzlJ0By0HFKoE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2012__07__20120713-burger-topping-variations-07-ae08265bb93a43a3a645035192ce80cd.jpg"
+      },
+      {
+        "id": 3,
+        "restid":1,
+        "name": "Veggie Burger",
+        "type": "veg",
+        "description": "A hearty veggie burger with mushrooms and black beans.",
+        "price": 5.49,
+        "image": "https://www.wellplated.com/wp-content/uploads/2016/03/Black-Bean-Vegan-Burger-Recipe.jpg"
+      },
+      {
+        "id": 4,
+        "restid":1,
+        "name": "Double Cheeseburger",
+        "type": "veg",
+        "description": "Two juicy patties with double cheese.",
+        "price": 7.49,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrpGT_OgnE1p5uhZvyLZk_GlTCiJ9fQOnwfw&s"
+      },
+      {
+        "id": 5,
+        "restid":1,
+        "name": "Onion Rings",
+        "type": "veg",
+        "description": "Crispy onion rings served with dipping sauce.",
+        "price": 3.99,
+        "image": "https://pbs.twimg.com/media/ECgX0GMWkAAlaZb.jpg"
+      }
+    ],
+    "offers": [
+      {
+        "id": 1,
+        "restid":1,
+        "description": "Buy 1 Burger, Get 1 Free",
+        "details": "Applicable on all burgers. Valid till end of this month."
+      }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "restid":1,
+        "reviewer": "John Doe",
+        "rating": 5,
+        "comment": "Fantastic burgers! The double cheeseburger was amazing.",
+        "date": "2024-08-15"
+      },
+      {
+        "id": 2,
+        "restid":1,
+        "reviewer": "Jane Smith",
+        "rating": 4,
+        "comment": "Good food and nice atmosphere. The onion rings were a bit greasy.",
+        "date": "2024-08-16"
+      }
+    ]
+    },
+    {
+      "id": 2,
+      "name": "Pizza Paradise",
+      "location": "Madhapur",
+      "latitude": 17.448000,
+      "longitude": 78.395000,
+      "rating": 4.2,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm7zh9nISbwzbR-TGNPSyy__HMFWnzbhWEsw&s",
+      "menu": [
+        {
+          "id": 1,
+          "restid":2,
+          "name": "Margherita Pizza",
+          "type": "veg",
+          "description": "Classic pizza with fresh tomatoes and mozzarella cheese.",
+          "price": 7.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtc9j7nS76Hq9_xj5IpRS4wrrm6YZEQvzpGw&s"
+        },
+        {
+          "id": 2,
+          "restid":2,
+          "name": "Pepperoni Pizza",
+          "type": "veg",
+          "description": "Spicy pepperoni with extra cheese on a tomato base.",
+          "price": 8.49,
+          "image": "https://media.istockphoto.com/id/938742222/photo/cheesy-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=D1z4xPCs-qQIZyUqRcHrnsJSJy_YbUD9udOrXpilNpI="
+        },
+        {
+          "id": 3,
+          "restid":2,
+          "name": "BBQ Chicken Pizza",
+          "type": "non-veg",
+          "description": "Pizza with BBQ sauce, chicken, and red onions.",
+          "price": 9.49,
+          "image": "https://www.budgetbytes.com/wp-content/uploads/2020/06/BBQ-Chicken-Pizza-one-slice.jpg"
+        },
+        {
+          "id": 4,
+          "restid":2,
+          "name": "Veggie Supreme",
+          "type": "veg",
+          "description": "Loaded with bell peppers, mushrooms, and olives.",
+          "price": 8.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvflA2SM9WZVaitqMQjHH4iIB2fzuXUoRXQQ&s"
+        },
+        {
+          "id": 5,
+          "restid":2,
+          "name": "Garlic Bread",
+          "type": "veg",
+          "description": "Crunchy bread topped with garlic and herbs.",
+          "price": 3.49,
+          "image": "https://i.ytimg.com/vi/ZxZO9wdOHPU/maxresdefault.jpg"
+        }
+      ],
+      "offers": [
+        {
+          "id": 1,
+          "restid":2,
+          "description": "20% Off on Large Pizzas",
+          "details": "Discount applies to large pizzas only. Valid on weekends."
+        }
+      ],
+      "reviews": [
+      {
+        "id": 1,
+        "restid": 3,
+        "reviewer": "Alice Johnson",
+        "rating": 4,
+        "comment": "Great pizza but a bit overpriced. The garlic bread was excellent.",
+        "date": "2024-08-17"
+      },
+      {
+        "id": 2,
+        "restid": 3,
+        "reviewer": "Bob Brown",
+        "rating": 3,
+        "comment": "Pizza was good but delivery took too long.",
+        "date": "2024-08-18"
+      }
+    ]
+    },
+    {
+      "id": 3,
+      "name": "Biryani Adda",
+      "location": "Kondapur",
+      "latitude": 17.446000,
+      "longitude": 78.391000,
+      "rating": 4.0,
+       "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_366/RX_THUMBNAIL/IMAGES/VENDOR/2024/4/1/1598c8c1-c649-4bdf-9271-4ac5ffe98e85_699731.jpg",
+       "menu": [
+        {
+          "id": 1,
+          "restid":3,
+          "name": "Chicken Biryani",
+          "type": "non-veg",
+          "description": "Spicy chicken biryani with fragrant basmati rice.",
+          "price": 9.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjhsPXWSgognjal2mSGWf73TgaANbOCfKGDg&s"
+        },
+        {
+          "id": 2,
+          "restid":3,
+          "name": "Veg Biryani",
+          "type": "veg",
+          "description": "A flavorful biryani with mixed vegetables.",
+          "price": 8.49,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaeBlIywcv4RMaVlvzAk-ygkpjyiX0juwM6Q&s"
+        },
+        {
+          "id": 3,
+          "restid":3,
+          "name": "Mutton Biryani",
+          "type": "non-veg",
+          "description": "A rich biryani with tender mutton pieces.",
+          "price": 10.49,
+          "image": "https://static.toiimg.com/thumb/53100174.cms?imgsize=224851&width=800&height=800"
+        }
+      ],
+      "offers": [
+        {
+          "id": 1,
+          "restid":3,
+          "description": "Free Dessert with Every Biryani",
+          "details": "Get a free dessert of your choice with every biryani ordered."
+        }
+      ],
+      "reviews": [
+        {
+          "id": 1,
+          "restid": 3,
+          "reviewer": "John Doe",
+          "rating": 5.0,
+          "comment": "Absolutely delicious! The Chicken Biryani was perfectly spiced and the service was top-notch.",
+          "date": "2024-09-01"
+        },
+        {
+          "id": 2,
+          "restid": 3,
+          "reviewer": "Jane Smith",
+          "rating": 4.0,
+          "comment": "The Veg Biryani was good, but I found the Mutton Biryani to be the highlight of the meal. Will definitely come back.",
+          "date": "2024-08-25"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Dosa Delight",
+      "location": "Jubilee Hills",
+      "latitude": 17.425000,
+      "longitude": 78.430000,
+      "rating": 4.7,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlYGK4uMqdveTidY8cLB5Va8AoPEYZkvkPMg&s",
+      "menu": [
+        {
+          "id": 1,
+          "restid":4,
+          "name": "Masala Dosa",
+          "type": "veg",
+          "description": "Crispy dosa with spiced potato filling.",
+          "price": 4.99,
+          "image": "https://i.pinimg.com/1200x/2a/c1/51/2ac15169850a766390adcba3a6d28eef.jpg"
+        },
+        {
+          "id": 2,
+          "restid":4,
+          "name": "Rava Dosa",
+          "type": "veg",
+          "description": "Thin and crispy rava dosa served with chutney.",
+          "price": 5.49,
+          "image": "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/05/rava-dosa-recipe.jpg"
+        },
+        {
+          "id": 3,
+          "restid":4,
+          "name": "Onion Dosa",
+          "type": "veg",
+          "description": "Dosa with finely chopped onions and spices.",
+          "price": 5.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdDiTNN_pNgSJjpa76Mi9wVPwuP-iwa1RD_g&s"
+        }
+        
+      ],
+      "offers": [
+        {
+          "id": 1,
+          "restid":4,
+          "description": "10% Off on Dosa Combos",
+          "details": "Get 10% off when you order dosa combos. Valid on weekdays."
+        }
+      ],
+      "reviews": [
+    {
+      "id": 1,
+      "restid": 4,
+      "reviewer": "Samantha Lee",
+      "rating": 4.5,
+      "comment": "The dosas are fantastic! Masala Dosa is a must-try. The place can get a bit crowded during peak hours.",
+      "date": "2024-09-03"
+    },
+    {
+      "id": 2,
+      "restid": 4,
+      "reviewer": "Alex Brown",
+      "rating": 4.8,
+      "comment": "Rava Dosa is my favorite here. Great taste and very affordable. Highly recommend it!",
+      "date": "2024-08-30"
+    }
+  ]
+    },
+    {
+      "id": 5,
+      "name": "Vegan Bistro",
+      "location": "Sainikpuri",
+      "latitude": 17.516000,
+      "longitude": 78.558000,
+      "rating": 4.8,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdvIV6mElMDuMr2FZJV9E8uYpjIm4xBQ89sg&s",
+      "menu": [
+        {
+          "id": 1,
+          "restid":5,
+          "name": "Vegan Burger",
+          "type": "veg",
+          "description": "Plant-based burger with avocado and lettuce.",
+          "price": 6.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEYb3dHVXt1lAhZ4-e_h5l3207hHDUTV8bAQ&s"
+        },
+        {
+          "id": 2,
+          "restid":5,
+          "name": "Quinoa Salad",
+          "type": "veg",
+          "description": "Fresh quinoa salad with mixed vegetables.",
+          "price": 7.49,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA2uh2RBTpkdEeVjFPK9dzj8oo8DruWA-qnw&s"
+        },
+        {
+          "id": 3,
+          "restid":5,
+          "name": "Vegan Wrap",
+          "type": "veg",
+          "description": "Wrap filled with hummus, veggies, and tofu.",
+          "price": 6.49,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7ufvha6uvQyVJvFFOojzNjtG72AsKqrjVwg&s"
+        }
+      ],
+      "offers": [
+        {
+          "id": 1,
+          "restid":5,
+          "description": "Buy 1 Get 1 Free on Vegan Burgers",
+          "details": "Buy one vegan burger and get another one free. Valid till end of the month."
+        }
+      ],
+      "reviews": [
+    {
+      "id": 1,
+      "restid": 5,
+      "reviewer": "Emily Johnson",
+      "rating": 5.0,
+      "comment": "Absolutely love the Vegan Wrap and the Quinoa Salad. Everything is so fresh and tasty!",
+      "date": "2024-09-02"
+    },
+    {
+      "id": 2,
+      "restid": 5,
+      "reviewer": "Michael White",
+      "rating": 4.9,
+      "comment": "Great vegan options! The Vegan Burger is delicious and well worth the price.",
+      "date": "2024-08-28"
+    }
+  ]
+    },
+    {
+      "id": 6,
+      "name": "Rameshwaram Cafe",
+      "location": "Bengaluru",
+      "latitude": 12.971600,
+      "longitude": 77.594600,
+      "rating": 4.3,
+      "image": "https://images.lifestyleasia.com/wp-content/uploads/sites/7/2023/05/19201331/Rameshwaram-Cafe-Bangalore-2-1600x900.jpg",
+      "menu": [
+      {
+        "id": 1,
+        "restid":6,
+        "name": "South Indian Thali",
+        "type": "veg",
+        "description": "Traditional South Indian meal with various dishes.",
+        "price": 8.99,
+        "image": "https://d4t7t8y8xqo0t.cloudfront.net/eazymedia/eazytrendz/2072/4.jpg"
+      },
+      {
+        "id": 2,
+        "restid":6,
+        "name": "Chai",
+        "type": "veg",
+        "description": "Spiced tea with milk.",
+        "price": 1.99,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9r1c8ZjN_5Z1jvOvnKxQyemwbOXLZA6XVcw&s"
+      },
+      {
+        "id": 3,
+        "restid":6,
+        "name": "Idli Sambar",
+        "type": "veg",
+        "description": "Steamed idlis served with spicy sambar.",
+        "price": 4.49,
+        "image": "https://www.vegrecipesofindia.com/wp-content/uploads/2014/05/idli-sambar-1-500x500.jpg"
+      }
+     
+    ],
+    "offers": [
+      {
+        "id": 1,
+        "restid":6,
+        "description": "Free Chai with Every South Indian Thali",
+        "details": "Get a free chai with the purchase of a South Indian Thali."
+      }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "restid": 6,
+        "reviewer": "Ravi Kumar",
+        "rating": 4.5,
+        "comment": "The South Indian Thali was excellent. The flavors were authentic and the chai was a perfect complement.",
+        "date": "2024-09-01"
+      },
+      {
+        "id": 2,
+        "restid": 6,
+        "reviewer": "Anita Sharma",
+        "rating": 4.0,
+        "comment": "Idli Sambar was good, but the service could be improved.",
+        "date": "2024-08-30"
+      }
+    ]
+    },
+    {
+        "id": 7,
+        "name": "chinese restaurant",
+        "location": "Bengaluru",
+        "latitude": 12.971600,
+        "longitude": 77.594600,
+        "rating": 4.3,
+        "image": "https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2950%2Ftrend20201005112101.jpg",
+        "menu": [
+          {
+            "id": 1,
+            "restid":7,
+            "name": "Kung Pao Chicken",
+            "type": "non-veg",
+            "description": "Stir-fried chicken with peanuts and vegetables.",
+            "price": 8.99,
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6mhJ9dEgOhKQQ2_HGT5FErpjZbX_UlSBO6w&s"
+          },
+          {
+            "id": 2,
+            "restid":7,
+            "name": "Sweet and Sour Pork",
+            "type": "non-veg",
+            "description": "Pork in a tangy and sweet sauce.",
+            "price": 9.49,
+            "image": "https://img.buzzfeed.com/thumbnailer-prod-us-east-1/aa2dffba333842628649b06c0aad70db/CUT2.jpg"
+          },
+          {
+            "id": 3,
+            "restid":7,
+            "name": "Vegetable Fried Rice",
+            "type": "veg",
+            "description": "Stir-fried rice with assorted vegetables.",
+            "price": 7.49,
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUByhfy_0FicyZsE5zp5Orbe0gmKJyOhWldA&s"
+          }
+        ],
+        "offers": [
+          {
+            "id": 1,
+            "restid":7,
+            "description": "10% Off on Orders Above $30",
+            "details": "Get 10% off on orders over $30. Valid on all weekdays."
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "restid": 7,
+            "reviewer": "John Doe",
+            "rating": 4.2,
+            "comment": "Kung Pao Chicken was flavorful and the fried rice was great. However, the Sweet and Sour Pork was a bit too sweet for my taste.",
+            "date": "2024-09-03"
+          },
+          {
+            "id": 2,
+            "restid": 7,
+            "reviewer": "Alice Lee",
+            "rating": 4.4,
+            "comment": "Enjoyed the meal overall. The vegetable fried rice was a standout dish.",
+            "date": "2024-08-29"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "name": "mexican Delight",
+        "location": "secunderabad",
+        "latitude": 17.428892007825265, 
+        "longitude": 78.51618543940214,
+        "rating": 4.3,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmOt52kXYMRMF8z11fThxYeUj6KjaHxG82Ww&s",
+        "menu": [
+          {
+            "id": 1,
+            "restid":8,
+            "name": "Tacos",
+            "type": "non-veg",
+            "description": "Crispy tacos filled with seasoned meat and fresh vegetables.",
+            "price": 5.99,
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4o0eszv3A5sq780cfA5FQfOiBath7wJDTJg&s"
+          },
+          {
+            "id": 2,
+            "restid":8,
+            "name": "Burritos",
+            "type": "non-veg",
+            "description": "Large burritos stuffed with beans, rice, and meat.",
+            "price": 7.49,
+            "image": "https://cdn.britannica.com/13/234013-050-73781543/rice-and-chorizo-burrito.jpg"
+          },
+          {
+            "id": 3,
+            "restid":8,
+            "name": "Quesadillas",
+            "type": "veg",
+            "description": "Grilled tortillas filled with cheese and your choice of fillings.",
+            "price": 6.49,
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtY6czgnspiJx7kZfWwxD9XJfXgaCd8xIttQ&s"
+          }
+        ],
+        "offers": [
+          {
+            "id": 1,
+            "restid":8,
+            "description": "Buy 2 Burritos, Get 1 Free",
+            "details": "Buy two burritos and get the third one free. Valid on weekends."
+          }
+        ],
+        "reviews": [
+          {
+            "id": 1,
+            "restid": 8,
+            "reviewer": "Carlos Ramirez",
+            "rating": 4.6,
+            "comment": "The burritos were delicious and the tacos were crispy. Great value for the price!",
+            "date": "2024-09-04"
+          },
+          {
+            "id": 2,
+            "restid": 8,
+            "reviewer": "Maya Patel",
+            "rating": 4.1,
+            "comment": "Enjoyed the quesadillas, but the service was a bit slow.",
+            "date": "2024-08-30"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "name": "Food Plaza",
+        "location": "secunderabad",
+        "latitude": 17.428892007825265, 
+        "longitude": 78.51618543940214,
+        "rating": 4.3,
+        "image": "https://img.freepik.com/free-photo/top-view-table-full-delicious-food-composition_23-2149141353.jpg",
+        "menu": [
+      {
+        "id": 1,
+        "restid":9,
+        "name": "Cheeseburger",
+        "type": "veg",
+        "description": "Juicy cheeseburger with lettuce, tomato, and pickles.",
+        "price": 6.99,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4YTDBqzLt-FErUfxYuNTBslEa30hVZjTMgA&s"
+      },
+      {
+        "id": 2,
+        "restid":9,
+        "name": "Chicken Wings",
+        "type": "non-veg",
+        "description": "Spicy chicken wings served with dipping sauce.",
+        "price": 7.49,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiuqlQq3p7DrHpCHajJ42YNf4VDnwNTtfRIw&s"
+      },
+      {
+        "id": 3,
+        "restid":9,
+        "name": "Caesar Salad",
+        "type": "veg",
+        "description": "Crisp romaine lettuce with Caesar dressing and croutons.",
+        "price": 5.99,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3ecODuUinQKRsl9t6YKS8ldH3BRv1NnpJ8g&s"
+      }
+    ],
+    "offers": [
+      {
+        "id": 1,
+        "restid":9,
+        "description": "Free Dessert with Every Main Course",
+        "details": "Get a free dessert with the purchase of any main course. Valid for dine-in only."
+      }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "restid": 9,
+        "reviewer": "Sanjay Gupta",
+        "rating": 4.4,
+        "comment": "The Veg Platter was a great mix of flavors. The Chicken Wings were also tasty.",
+        "date": "2024-09-02"
+      },
+      {
+        "id": 2,
+        "restid": 9,
+        "reviewer": "Priya Singh",
+        "rating": 4.2,
+        "comment": "Good variety, but the grilled fish could have been better seasoned.",
+        "date": "2024-08-28"
+      }
+    ]
+      },
+      {
+        "id": 10,
+        "name": "Chai-Biscuit",
+        "location": "Sainikpuri",
+        "latitude": 17.516000,
+      "longitude": 78.558000,
+        "rating": 4.3,
+        "image": "https://c.ndtvimg.com/2023-02/1cptsurg_chai-tea-biscuit2_625x300_22_February_23.jpg",
+        "menu": [
+          {
+            "id": 1,
+            "restid":10,
+            "name": "Masala Chai",
+            "type": "veg",
+            "description": "Spiced tea with aromatic spices.",
+            "price": 1.99,
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAkVlbaiN5NvSP0cs-JgDCVg6E6tEq8wF_eg&s"
+          },
+          {
+            "id": 2,
+            "restid":10,
+            "name": "Biscuits",
+            "type": "veg",
+            "description": "Freshly baked biscuits served with tea.",
+            "price": 2.49,
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj3GtvKCFUgepUV_tsTiHWEJXYbWMQVqrfuw&s"
+          },
+          {
+            "id": 3,
+            "restid":10,
+            "name": "Chai Latte",
+            "type": "veg",
+            "description": "Creamy chai latte with a touch of milk froth.",
+            "price": 2.99,
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa8hdKsM9Y-Cr5httCGP8MP3P6QyGCatBxrw&s"
+          }
+        ],
+        "offers": [
+          {
+            "id": 1,
+            "restid":10,
+            "description": "Buy 1 Chai, Get 1 Biscuit Free",
+            "details": "Purchase any chai and get a biscuit free. Valid all day."
+          }
+        ],
+        "reviews": [
+    {
+      "id": 1,
+      "restid": 10,
+      "reviewer": "Sita Rani",
+      "rating": 4.5,
+      "comment": "The Masala Chai is fantastic! Perfectly spiced and the biscuits are a great accompaniment.",
+      "date": "2024-09-01"
+    },
+    {
+      "id": 2,
+      "restid": 10,
+      "reviewer": "Rohan Verma",
+      "rating": 4.2,
+      "comment": "Chai Latte was good but could use a bit more froth. The biscuits were fresh and tasty.",
+      "date": "2024-08-30"
+    }
+  ]
+      }
+
+    
+  ]
+  
