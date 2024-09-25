@@ -77,4 +77,27 @@
   
       margin-bottom: 0px; /* Space below the image */
     }
+   
+    .addrlist {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
     
+    .addrcard {
+      border: 1px solid #e0e0e0;
+      padding: 16px;
+      background-color: #f9f9f9;
+    }
+    
+    .addrdiv {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 10px; /* Space between Edit and Delete buttons */
+    }

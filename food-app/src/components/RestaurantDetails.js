@@ -1,14 +1,19 @@
 // components/RestaurantDetails.js
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Layout } from 'antd';
+import { Layout ,notification } from 'antd';
 import axios from 'axios';
 import { useRecoilState } from 'recoil';
 import { cartState } from '../atoms/cartstate.js';
+import { currentRestaurantState,currentPrevState } from '../atoms/cartstate.js';
 import {  Input } from 'antd';
 import { Switch ,Card } from 'antd';
 import CartModal from './Cart.js';
-
+import AddModal from './modal.js';
+import { Avatar} from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import { CustomerServiceOutlined } from '@ant-design/icons';
+import { supabase } from './supabaseClient';
 
 
 import { Button, Grid, Menu, theme } from "antd";
@@ -30,27 +35,30 @@ const { useBreakpoint } = Grid;
 const { Meta } = Card;
 
 const RestaurantDetails = () => {
+  
   const { id } = useParams();
   const [restaurant, setRestaurant] = useState(null);
   const [error, setError] = useState('');
   const [cart, setCart] = useRecoilState(cartState); // Use Recoil for cart state
+  const [newCart , setNewCart]=useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredMenu, setFilteredMenu] = useState([]);
   const [isVeg, setIsVeg] = useState(false); 
   const [isNonVeg, setIsNonVeg] = useState(false); // Initial state set to Non-Veg
   const [reviews, setReviews] = useState([]);
   const [isCartModalVisible, setIsCartModalVisible] = useState(false);
-  const [currentRestaurant, setCurrentRestaurant] = useState(null);
+  const [isAddModalVisible, setIsAddModalVisible] = useState(false);
+  // const [currentRestaurant, setCurrentRestaurant] = useRecoilState(currentRestaurantState); // Use Recoil state
+  // const [prev,setPrev]=useRecoilState(currentPrevState);
+  const [session, setSession] = useState(null);
+ 
+  // useEffect(() => {
+    
+  //   setCurrentRestaurant(prev);
+  // }, [id, currentRestaurant, setCurrentRestaurant, cart]);
 
-  useEffect(() => {
-    if(!currentRestaurant)setCart([]);
-    if (currentRestaurant && currentRestaurant !== id) {
-      // If the user switches to a new restaurant, reset the cart
-      setCart([]);
-    }
-    // Set the current restaurant to the new restaurant
-    setCurrentRestaurant(id);
-  }, [id]);
+  
+
 
 
   const navigate = useNavigate();
@@ -60,12 +68,12 @@ const RestaurantDetails = () => {
   const menuItems = [
     
     {
-      label: "Dashboard",
-      key: "dashboard",
+      label: "Home",
+      key: "home",
     },
-    { label: "Cart", key: "cart" },
-    { label: "Payment", key: "Payment" },
-    { label: "Order Status", key: "order-status" },
+    // { label: "Cart", key: "cart" },
+    // { label: "Payment", key: "Payment" },
+    // { label: "Order Status", key: "order-status" },
   ];
 
   const [current, setCurrent] = useState("projects");
@@ -75,18 +83,18 @@ const RestaurantDetails = () => {
     setCurrent(e.key);
     switch (e.key) {
       
-      case "dashboard":
-        navigate("/dashboard");
+      case "home":
+        navigate("/");
         break;
-      case "cart":
-        setIsCartModalVisible(true);
-        break;
-      case "Payment":
-        navigate("/pay");
-        break;
-        case "order-status":
-          navigate("/order");
-          break;
+      // case "cart":
+      //   setIsCartModalVisible(true);
+      //   break;
+      // case "Payment":
+      //   navigate("/pay");
+      //   break;
+        // case "order-status":
+        //   navigate("/order");
+        //   break;
      
       
       default:
@@ -110,45 +118,103 @@ const RestaurantDetails = () => {
       lineHeight: screens.sm ? "4rem" : "3.5rem",
       marginLeft: screens.md ? "0px" : `-${token.size}px`,
       width: screens.md ? "inherit" : token.sizeXXL,
-      fontSize: '1.5rem'
+      fontSize: '2rem'
+      
     },
     menuContainer: {
       alignItems: "center",
       display: "flex",
       gap: token.size,
+      justifyContent: 'space-between', 
       width: "100%",
       height:"50px",
     },
+    iconContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '24px', // Adjust the gap between the icons
+      marginTop:"5px",
+    },
   };
+  // useEffect(() => {
+  //   const deleteOrders = async () => {
+  //     try {
+  //       await axios.delete('http://localhost:4000/orders');
+  //       console.log('Orders deleted successfully');
+  //     } catch (error) {
+  //       console.error('Error deleting orders:', error.message || error);
+  //     }
+  //   };
 
-
+  //   if (cart.length === 0) {
+  //     deleteOrders();
+  //   }
+  // }, [cart]);
   useEffect(() => {
+    const fetchSession = async () => {
+      const { data, error } = await supabase.auth.getSession();
+      if (error) {
+        console.log('Failed to fetch session.');
+        return;
+      }
+      setSession(data.session);
+    };
+  
+    fetchSession();
+  }, []);
+console.log('sample');
+  useEffect(() => {
+    console.log('example');
     const fetchRestaurantDetails = async () => {
       try {
-        const response = await axios.get('/data/restaurants.json');
-        const allRestaurants = response.data;
-        const selectedRestaurant = allRestaurants.find(rest => rest.id === parseInt(id));
-
+        console.log(`Fetching details for restaurant ID: ${id}`);
+        const url = `http://localhost:4000/restaurants/${id}`;
+        console.log(`Request URL: ${url}`);
+        
+        const response = await axios.get(url);
+        
+        console.log('API Response:', response.data);
+        const selectedRestaurant = response.data;
+    
         if (selectedRestaurant) {
           setRestaurant(selectedRestaurant);
           setFilteredMenu(selectedRestaurant.menu); 
           if (selectedRestaurant.reviews) {
             setReviews(selectedRestaurant.reviews);
           }
-          
         } else {
           setError('Restaurant not found.');
         }
       } catch (error) {
-        console.error('Error fetching restaurant details:', error);
-        setError('Failed to fetch restaurant details.');
+        console.error('Error fetching restaurant details:', error.message || error);
+        notification.error({
+          message: 'Error Fetching Restaurant Details',
+          description: 'There was an issue fetching the restaurant Details. Please try again later.',
+          placement:'top',
+        });
       }
     };
+    
 
     fetchRestaurantDetails();
   }, [id]);
 
   const handleAddToCart = (menuItem) => {
+    const res = cart.length > 0 ? cart[0].restid: null;
+    if (res && res!= id) {
+      
+         setIsAddModalVisible(true);
+         setNewCart(prevNewCart => {
+        
+           
+            return [...prevNewCart, { ...menuItem, quantity: 1,restaurantName: restaurant.name}];
+            
+          }
+        
+        );
+         
+        }
+    else{
     setCart(prevCart => {
       // Check if item already exists in cart
       const existingItem = prevCart.find((item)=> item.id=== menuItem.id &&item.restid===menuItem.restid);
@@ -159,18 +225,22 @@ const RestaurantDetails = () => {
       } else {
         // If not, add new item
        
-        return [...prevCart, { ...menuItem, quantity: 1 }];
+        return [...prevCart, { ...menuItem, quantity: 1,restaurantName: restaurant.name}];
         
       }
+    
     });
+  }
+  
+  // setPrev(id);
   };
-console.log("hello");
+console.log("hellocart",cart);
   // const handleViewCart = () => {
   //   navigate('/cart',{ state: { restaurantId: id}});
   // };
 
   if (error) {
-    return <div>{error}</div>;
+    return <p style={{top:"100px", left:"100px", fontSize:"30px"}}>No menu items found</p>;
   }
 
   if (!restaurant) {
@@ -178,17 +248,24 @@ console.log("hello");
   }
   const handleSearch = () => {
     if (restaurant) {
+      if(!searchTerm)
+      {
+        setFilteredMenu(restaurant);
+        return;
+      }
+      
       const filtered = restaurant.menu.filter(item =>
         item.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setFilteredMenu(filtered);
       console.log(filtered)
+    
     }
   };
-  const handleReset = () => {
-    setSearchTerm('');
-    setFilteredMenu(restaurant.menu); 
-  };
+  // const handleReset = () => {
+  //   setSearchTerm('');
+  //   setFilteredMenu(restaurant.menu); 
+  // };
   const handleVegToggle = (checked) => {
     setIsVeg(checked); // Turn on Veg toggle
     setIsNonVeg(false); // Turn off Non-Veg toggle
@@ -229,13 +306,54 @@ console.log("hello");
   const handleCloseCartModal = () => {
     setIsCartModalVisible(false);
   };
+ 
+  const handleCloseAddModal = () => {
+    setIsAddModalVisible(false);
+  };
+  const handleProfileClick = () => {
+    navigate('/profile'); // Navigate to the profile page when the icon is clicked
+  };
+ 
+  const handleSignOut = async () => {
+    try {
+      // Get the user ID from Supabase session
+      const userId = session.user.id;
+  console.log(`signout`,userId);
+      // Sign out the user
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        console.error('Error signing out:', error.message);
+        alert('Failed to sign out. Please try again.');
+        return;
+      }
+  
+      // Delete user data from the backend
+      if (userId) {
+        await axios.delete(`http://localhost:4000/users/${userId}`);
+      }
+  
+      navigate('/'); // Redirect to the login page
+    } catch (error) {
+      console.error('Error during sign-out:', error.message);
+      notification.error({
+        message:'Error signing out',
+        description:'There was an issue when signing out.Please try again later',
+      });
+    }
+  };
+  const handleReplaceCart = () => {
+    // setCart([]); // Clear the cart
+    setCart(newCart);
+    console.log('cartnew',newCart);
+    setIsAddModalVisible(false); // Close the AddModal
+  };
   return (
 
     <Layout className="layouts">
        <nav style={styles.header}>
      
         <div style={styles.menuContainer}>
-         
+        
           <Menu
             style={styles.menu}
             mode="horizontal"
@@ -246,7 +364,14 @@ console.log("hello");
               <Button type="text" icon={<MenuOutlined />} />
             }
           />
-         <IconFont type="icon-shoppingcart" onClick={() => setIsCartModalVisible(true)} style={{ margin: "50px 30px", fontSize: "40px" }} />
+             <div style={styles.iconContainer}>
+          <Avatar size="large" style={{  fontSize: "35px"  }}  onClick={handleProfileClick} icon={<UserOutlined />} />
+         <IconFont type="icon-shoppingcart" onClick={() => setIsCartModalVisible(true)} style={{  fontSize: "40px" }} />
+         <CustomerServiceOutlined  style={{  fontSize: "38px"}} onClick={()=>{navigate('/order')}}/>
+         <Button className="header-button sign-out" type="primary" onClick={handleSignOut} style={{  marginBottom: "40px"}}  >
+            Sign Out
+          </Button>
+         </div>
       </div>
       
     </nav>
@@ -265,11 +390,11 @@ console.log("hello");
         type="text"
         placeholder="Search"
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={(e) => {setSearchTerm(e.target.value);handleSearch()}}
       />
 
       <Button   style={{margin:"0 15px"}} onClick={handleSearch} type="primary">Search</Button>
-      <Button onClick={handleReset} type="primary">Reset</Button>
+      {/* <Button onClick={handleReset} type="primary">Reset</Button> */}
       <div style={{marginTop:"40px"}}>
       <Switch
       style={{marginRight:"20px"}}
@@ -308,15 +433,20 @@ console.log("hello");
               <p>{item.description}</p>
               <p>Price: ${item.price}</p>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Button type="primary" onClick={() => handleAddToCart(item)}>
-                Add to Cart
-              </Button>
-             
-              <Button style={{ marginLeft: '10px' }} type="primary" onClick={() => handleDecreaseQuantity(item.id,item.restid)}>-</Button>
-              <p style={{ margin: '0px  10px' }}>{cart.find(cartItem => cartItem.id === item.id&& cartItem.restid===item.restid)?.quantity || 0}</p> {/* Ensure quantity is shown */}
-                
-                  <Button type="primary" onClick={() => handleIncreaseQuantity(item.id,item.restid)}>+</Button>
-                  </div>
+              {!cart.some(cartItem => cartItem.id === item.id && cartItem.restid === item.restid) ? (
+                <Button type="primary" onClick={() => handleAddToCart(item)}>
+                  Add to Cart
+                </Button>
+              ) : (
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Button type="primary" onClick={() => handleDecreaseQuantity(item.id, item.restid)}>-</Button>
+                  <p style={{ margin: '0px 10px' }}>
+                    {cart.find(cartItem => cartItem.id === item.id && cartItem.restid === item.restid)?.quantity || 0}
+                  </p>
+                  <Button type="primary" onClick={() => handleIncreaseQuantity(item.id, item.restid)}>+</Button>
+                </div>
+              )}
+            </div>
             </div>
             
           )}
@@ -361,6 +491,10 @@ console.log("hello");
         Footer Content
       </Footer>
       <CartModal visible={isCartModalVisible} onClose={handleCloseCartModal} />
+      <AddModal visible={isAddModalVisible}  onClose={handleCloseAddModal} onReplace={handleReplaceCart} name={restaurant.name}>
+              hello
+                
+            </AddModal>
     </Layout>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Button, Spin ,Input } from 'antd';
+import { Button, Spin ,Input ,  notification} from 'antd';
 
 
 
@@ -49,9 +49,9 @@ const RestaurantListings = () => {
   const fetchRestaurants = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await axios.get('/data/restaurants.json');
+      const response = await axios.get('http://localhost:4000/restaurants');
       const allRestaurants = response.data;
-
+console.log(allRestaurants);
       if (location) {
         const sortedRestaurants = allRestaurants.map((restaurant) => {
           const distance = calculateDistance(
@@ -70,7 +70,10 @@ const RestaurantListings = () => {
         setFilteredRestaurants(allRestaurants);
       }
     } catch (error) {
-      setError('Failed to fetch restaurants.');
+      notification.error({
+        message: 'Error Fetching Restaurants',
+        description: 'There was an issue fetching the restaurants. Please try again later.',
+      });
     }
     setLoading(false);
   }, [location]);
@@ -114,10 +117,10 @@ const RestaurantListings = () => {
     filterRestaurants();
   };
 
-  const handleReset = () => {
-    setSearchTerm('');
-    setFilteredRestaurants(restaurants); // Show all restaurants
-  };
+  // const handleReset = () => {
+  //   setSearchTerm('');
+  //   setFilteredRestaurants(restaurants); // Show all restaurants
+  // };
 
   return (
     <div>
@@ -128,14 +131,14 @@ const RestaurantListings = () => {
           type="text"
           placeholder="Search"
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={(e) => {setSearchTerm(e.target.value); filterRestaurants(searchTerm)}}
         />
 
         <Button   style={{margin:"0 15px"}} onClick={handleSearch} type="primary">Search</Button>
-        <Button onClick={handleReset} type="primary">Reset</Button>
+       {/* <Button onClick={handleReset} type="primary">Reset</Button> */}
       </div>
 
-      {error && <p className="error">{error}</p>}
+     
       {loading ? (
         <Spin />
       ) : (

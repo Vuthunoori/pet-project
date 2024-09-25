@@ -50,16 +50,25 @@ const CartModal = ({ visible, onClose }) => {
      
       footer={[
         cartItems.length>0 &&
-       ( <Button key="reset" type="primary" onClick={handleReset}>
-          Reset Cart
+       (
+        
+        <Button type="primary" onClick={handlePayment} style={{ marginTop: '20px' }}>
+        Proceed to Payment
+      </Button>),
+        cartItems.length>0 &&
+       (
+        
+       <Button key="reset" type="primary" onClick={handleReset}>
+          Cancel Orders
         </Button>),
         <Button key="ok" type="primary" onClick={onClose}>
           Ok
         </Button>,
+        
       ]}
     >
       {cartItems.length === 0 ? (
-        <p style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bold', color: 'red' }}>Your cart is empty.</p>
+        <p style={{ textAlign: 'center', fontSize: '30px', fontWeight: 'bold', color: 'red' ,fontStyle:'lora'}}>Your cart is empty.</p>
       ) : (
         <ul>
           {cartItems.map((item, index) => (
@@ -79,11 +88,7 @@ const CartModal = ({ visible, onClose }) => {
           ))}
         </ul>
       )}
-      {cartItems.length > 0 && (
-        <Button type="primary" onClick={handlePayment} style={{ marginTop: '20px' }}>
-          Proceed to Payment
-        </Button>
-      )}
+     
     
     </Modal>
   );

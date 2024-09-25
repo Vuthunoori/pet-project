@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
-
+import { supabase } from './supabaseClient';
 import { Layout } from "antd";
 import {  useNavigate } from 'react-router-dom';
-import { Button, Card, Grid, Menu,theme } from "antd";
+import { Button, Card, Grid, Menu,theme,notification } from "antd";
 import CartModal from './Cart.js'; 
-
+import { useRecoilValue} from 'recoil';
+import { useRecoilState} from 'recoil';
 import { MenuOutlined } from "@ant-design/icons";
-
-
-
+// import { currentRestaurantState } from '../atoms/cartstate.js';
+import { cartState } from "../atoms/cartstate.js";
+import { Avatar} from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import { CustomerServiceOutlined } from '@ant-design/icons';
+import axios from 'axios';
 import { createFromIconfontCN } from '@ant-design/icons';
 
 const IconFont = createFromIconfontCN({
@@ -27,8 +31,13 @@ const { useBreakpoint } = Grid;
 
 const OrderHistoryPage = () => {
   const [orderHistory, setOrderHistory] = useState([]);
-
+  const [session, setSession] = useState(null);
   const [isCartModalVisible, setIsCartModalVisible] = useState(false);
+  // const [currentRestaurant, setCurrentRestaurant] = useRecoilValue(currentRestaurantState);
+  // const [cart, setCart] = useRecoilState(cartState);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
+  const [carts, setCarts]=useRecoilState(cartState);
   const { token } = useToken();
   const navigate = useNavigate();
   const screens = useBreakpoint();
@@ -36,11 +45,13 @@ const OrderHistoryPage = () => {
   const menuItems = [
     
     {
-      label: "Dashboard",
-      key: "dashboard",
+      label: <span style={{ color: 'white' }}>Home</span>,
+      key: "home",
     },
-    { label: "Cart", key: "cart" },
-    { label: "Payment", key: "payment" },
+    // { label: <span style={{ color: 'white' }}>Menu</span>, key: "menu" },
+    // { label: "Cart", key: "cart" },
+    // { label: <span style={{ color: 'white' }}>Payment</span>, key: "Payment" },
+    // { label: "Order Status", key: "order-status" },
   ];
 
   const [current, setCurrent] = useState("projects");
@@ -50,15 +61,23 @@ const OrderHistoryPage = () => {
     setCurrent(e.key);
     switch (e.key) {
       
-      case "dashboard":
-        navigate("/dashboard");
+      case "home":
+        navigate("/");
         break;
-        case "cart":
-          setIsCartModalVisible(true);
-          break;
-          case "payment":
-            navigate("/pay");
-            break;
+        // case "menu":
+        //   navigate(`/restaurant/${currentRestaurant}`);
+        //   break;
+      // case "cart":
+      //   setIsCartModalVisible(true);
+      //   break;
+      // case "Payment":
+      //   navigate("/pay");
+      //   break;
+        // case "order-status":
+        //   navigate("/order");
+        //   break;
+     
+      
       default:
         break;
     }
@@ -69,6 +88,10 @@ const OrderHistoryPage = () => {
     header: {
       backgroundColor: token.colorBgContainer,
       borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+      height: "60px", // Adjust the height here
+      backgroundColor:"#001529",
+     
+    padding: "0 20px",
       position: "relative",
     },
     menu: {
@@ -78,32 +101,107 @@ const OrderHistoryPage = () => {
       marginLeft: screens.md ? "0px" : `-${token.size}px`,
       width: screens.md ? "inherit" : token.sizeXXL,
       fontSize: '1.5rem'
+      
     },
     menuContainer: {
       alignItems: "center",
       display: "flex",
       gap: token.size,
+      justifyContent: 'space-between', 
       width: "100%",
+      height:"50px",
+      color:"white",
+    },
+    iconContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '23px', // Adjust the gap between the icons
+      marginTop:"5px",
     },
   };
-
   useEffect(() => {
-    // Fetch orders from localStorage
-    const storedOrders = JSON.parse(localStorage.getItem("orderDetails"));
-    
-    if (storedOrders) {
-      setOrderHistory([storedOrders]); // If you expect multiple orders, adjust this accordingly
-    }
+    const fetchSession = async () => {
+      const { data, error } = await supabase.auth.getSession();
+      if (error) {
+        console.log('Failed to fetch session.');
+        return;
+      }
+      setSession(data.session);
+    };
+  
+    fetchSession();
+    setCarts([]);
   }, []);
+  useEffect(() => {
+
+    const fetching= async()=>{
+       try{
+          const response= await axios.get('http://localhost:4000/orders');
+          
+          if(response){
+          setOrderHistory(response.data);
+          }
+       }
+       catch (error) {
+        console.error("There was an error", error);
+        notification.error({
+          message:'Error Fetching Order Details',
+          description:'There was an issue fetching order details.Please try again later',
+        });
+        
+      }
+      
+    }
+   
+    // const storedOrders = JSON.parse(localStorage.getItem("orderDetails"));
+    
+    // if (storedOrders) {
+    //   setOrderHistory([storedOrders]); // If you expect multiple orders, adjust this accordingly
+    // }
+    fetching();
+    
+  }, []);
+ 
+  
   const handleCloseCartModal = () => {
     setIsCartModalVisible(false);
+  };
+  const handleProfileClick = () => {
+    navigate('/profile'); // Navigate to the profile page when the icon is clicked
+  };
+  const handleSignOut = async () => {
+    try {
+      // Get the user ID from Supabase session
+      const userId = session.user.id;
+  console.log(`signout`,userId);
+      // Sign out the user
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        console.error('Error signing out:', error.message);
+        alert('Failed to sign out. Please try again.');
+        return;
+      }
+  
+      // Delete user data from the backend
+      if (userId) {
+        await axios.delete(`http://localhost:4000/users/${userId}`);
+      }
+  
+      navigate('/'); // Redirect to the login page
+    } catch (error) {
+      console.error('Error during sign-out:', error.message);
+      notification.error({
+        message:'Error signing out',
+        description:'There was an issue when signing out.Please try again later',
+      });
+    }
   };
   return (
     <Layout className="layouts">
          <nav style={styles.header}>
      
      <div style={styles.menuContainer}>
-       {/* Remove the logo */}
+     
        <Menu
          style={styles.menu}
          mode="horizontal"
@@ -114,14 +212,22 @@ const OrderHistoryPage = () => {
            <Button type="text" icon={<MenuOutlined />} />
          }
        />
-     <IconFont type="icon-shoppingcart" onClick={() => setIsCartModalVisible(true)} style={{ margin: "10px 30px", fontSize: "40px" }} /> 
+          <div style={styles.iconContainer}>
+       <Avatar size="large" style={{  fontSize: "35px"  }}  onClick={handleProfileClick} icon={<UserOutlined />} />
+      <IconFont type="icon-shoppingcart" onClick={() => setIsCartModalVisible(true)} style={{  fontSize: "40px" }} />
+      <CustomerServiceOutlined  style={{  fontSize: "38px"}} onClick={()=>{navigate('/order')}}/>
+      <Button className="header-button sign-out" type="primary" onClick={handleSignOut} style={{  marginBottom: "40px"}}  >
+         Sign Out
+       </Button>
+      </div>
    </div>
- </nav>  
-      <Header className="headers">Order History</Header>
+   
+ </nav>
+     
       <Content className="contents">
-        <h2>Your Order History</h2>
+        <h2 style={{fontSize:"30px"}}>Your Order History</h2>
         {orderHistory.length === 0 ? (
-          <p>Your order history is empty.</p>
+          <p style={{fontSize:"35px",marginLeft:"700px",marginTop:"300px"}}>Your order history is empty.</p>
         ) : (
           <div>
             {orderHistory.map((order, index) => (
