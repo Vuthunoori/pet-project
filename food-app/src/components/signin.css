@@ -1,26 +1,21 @@
-/* App.css */
 .sign-in {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
-  .sign-in h1 {
-    font-size: 2.5rem; /* Adjust size as needed */
-    margin-bottom: 20px; /* Space between heading and button */
-    
-  }
-  
- /* restaurant.css */
- .restaurant-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.sign-in h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.restaurant-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 25px;
   padding: 16px;
 }
-
 .restaurant-card {
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -49,55 +44,53 @@
   margin: 0;
 }
 
-.restaurant-location, .restaurant-rating {
+.restaurant-location,
+.restaurant-rating {
   margin: 8px 0;
 }
 
-  .sign-out
-  {
-    margin:50px 0;
-    font-size: 1.5rem;
-  }
-  .toggle{
-    margin:0px 0;
-    font-size: 1.5rem;
-  }
-  
-  
-    
-  .menu-item-image {
-    width: 190px;
-    height: auto;
-    display: block;
-    margin-bottom: 10px;
-  }
-  .restaurant-imaging {
-    max-width: 30%;
-      height: 30%;
-  
-      margin-bottom: 0px; /* Space below the image */
-    }
-   
-    .addrlist {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-bottom: 30px;
-    }
-    
-    .addrcard {
-      border: 1px solid #e0e0e0;
-      padding: 16px;
-      background-color: #f9f9f9;
-    }
-    
-    .addrdiv {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .button-group {
-      display: flex;
-      gap: 10px; /* Space between Edit and Delete buttons */
-    }
+.sign-out {
+  margin: 50px 0;
+  font-size: 1.5rem;
+}
+.toggle {
+  margin: 0px 0;
+  font-size: 1.5rem;
+}
+
+.menu-item-image {
+  width: 190px;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+.restaurant-imaging {
+  max-width: 30%;
+  height: 30%;
+
+  margin-bottom: 0px;
+}
+
+.addrlist {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.addrcard {
+  border: 1px solid #e0e0e0;
+  padding: 16px;
+  background-color: #f9f9f9;
+}
+
+.addrdiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}

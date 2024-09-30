@@ -7,11 +7,6 @@
     },
     {
       "id": "c56092df-00c9-4f6e-bd81-d2b5ffb7d558",
-      "name": "Lahari",
-      "email": "lahari.vuthunoori@beautifulcode.in"
-    },
-    {
-      "id": "c56092df-00c9-4f6e-bd81-d2b5ffb7d558",
       "name": "Lahari Vuthunoori",
       "email": "lahari.vuthunoori@beautifulcode.in"
     }
@@ -21,22 +16,22 @@
       "id": "c56092df-00c9-4f6e-bd81-d2b5ffb7d558",
       "cartItems": [
         {
-          "id": 2,
-          "restid": 5,
-          "name": "Quinoa Salad",
+          "id": 1,
+          "restid": 1,
+          "name": "Cheese Burger",
           "type": "veg",
-          "description": "Fresh quinoa salad with mixed vegetables.",
-          "price": 7.49,
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA2uh2RBTpkdEeVjFPK9dzj8oo8DruWA-qnw&s",
+          "description": "A delicious cheese burger with lettuce and tomato.",
+          "price": 5.99,
+          "image": "https://www.sargento.com/assets/Uploads/Recipe/Image/burger_0.jpg",
           "quantity": 1,
-          "restaurantName": "Vegan Bistro"
+          "restaurantName": "Burger Heaven"
         }
       ],
       "address": {
+        "id": "312b",
         "name": "lahari",
-        "address": "secunderabad",
-        "userId": "c56092df-00c9-4f6e-bd81-d2b5ffb7d558",
-        "id": "cc47"
+        "address": "hitech city",
+        "userId": null
       }
     },
     {
@@ -44,21 +39,21 @@
       "cartItems": [
         {
           "id": 1,
-          "restid": 8,
-          "name": "Tacos",
-          "type": "non-veg",
-          "description": "Crispy tacos filled with seasoned meat and fresh vegetables.",
+          "restid": 1,
+          "name": "Cheese Burger",
+          "type": "veg",
+          "description": "A delicious cheese burger with lettuce and tomato.",
           "price": 5.99,
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4o0eszv3A5sq780cfA5FQfOiBath7wJDTJg&s",
+          "image": "https://www.sargento.com/assets/Uploads/Recipe/Image/burger_0.jpg",
           "quantity": 1,
-          "restaurantName": "mexican Delight"
+          "restaurantName": "Burger Heaven"
         }
       ],
       "address": {
-        "name": "lahari",
-        "address": "secunderabad",
-        "userId": "c56092df-00c9-4f6e-bd81-d2b5ffb7d558",
-        "id": "cc47"
+        "id": "2bf9",
+        "name": "lahari  vuth",
+        "address": "hitech city",
+        "userId": null
       }
     }
   ],
@@ -742,10 +737,22 @@
   ],
   "addresses": [
     {
+      "id": "8116",
+      "name": "vuthunoori",
+      "address": "madhapur",
+      "userId": null
+    },
+    {
+      "id": "2bf9",
+      "name": "lahari  vuth",
+      "address": "hitech city",
+      "userId": null
+    },
+    {
+      "id": "312b",
       "name": "lahari",
-      "address": "secunderabad",
-      "userId": null,
-      "id": "cc47"
+      "address": "hitech city",
+      "userId": null
     }
   ]
 }

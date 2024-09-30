@@ -1,90 +1,80 @@
-/* signin.css */
 .layout {
-    min-height: 100vh;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between; /* Aligns items to the start and end of the header */
-    align-items: center; /* Vertically centers items */
-    background-color: #001529;
-    color: #fff;
-    padding: 0 1rem; /* Horizontal padding */
-  }
-  
-  .header-title {
-    font-size: 1.5rem;
-  }
-  
-  .header-button {
-    margin: 0; /* Remove default margin */
-  }
-  
-  .content {
-    padding: 2rem;
-  }
-  
-  .footer {
-    text-align: center;
-    background-color: #001529;
-    color: #fff;
-  }
-  
-  
-  .layouts {
-    min-height: 100vh;
-  }
-  
-  .headers {
-    background: #001529;
-    color: #fff;
-    padding: 0px; /* Increase padding for more space */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   
-    justify-content: center; /* Center items vertically */
-    height: auto; /* Allow the height to adjust based on content */
-   
-  }
-  
+  min-height: 100vh;
+}
+.content {
+  padding: 2rem;
+}
 
-  .headers h1 {
-   margin-bottom: 0px;
-    font-size: 2rem; /* Adjust font size as needed */
-    margin-top:0px;
-  }
-  
-  .headers p {
-    margin-top: 0px;
-    font-size: 1rem; /* Adjust font size as needed */
-    margin-bottom: 0px;
-  }
-  
-  .contents {
-    padding: 20px;
-  }
-  .contents h1{
-    font-size:2.5rem;
-    font-weight: bold;
-    color: red;
-  }
-  .contents ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .contents li {
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-  }
-  
+.footer {
+  text-align: center;
+  background-color: #001529;
+  color: #fff;
+}
 
-  .foot {
-    text-align: center;
-    padding: 10px;
-    background:#001529;
-    color: white;
-  }
-  
-  
+.layouts {
+  min-height: 100vh;
+}
+
+.headers {
+  background: #001529;
+  color: #fff;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: center;
+  height: auto;
+}
+
+.headers h1 {
+  margin-bottom: 0px;
+  font-size: 2rem;
+  margin-top: 0px;
+}
+
+.headers p {
+  margin-top: 0px;
+  font-size: 1rem;
+  margin-bottom: 0px;
+}
+
+.contents {
+  padding: 20px;
+}
+.contents h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: red;
+}
+.contents ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contents li {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.foot {
+  text-align: center;
+  padding: 10px;
+  background: #001529;
+  color: white;
+}
+
+.profile-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh !important;
+}
+
+.profile-card {
+  width: 100% !important;
+  max-width: 600px !important;
+  padding: 20px !important;
+  height: 700px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
